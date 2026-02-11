@@ -1,135 +1,229 @@
 import {
-    Layers,
-    Rocket,
-    ShieldCheck,
-    Code2,
-    Database,
-    Server,
-    GitBranch,
-    Cloud,
-    Settings,
-    MonitorSmartphone,
+  Layers,
+  Rocket,
+  ShieldCheck,
+  Code2,
+  Database,
+  Server,
+  GitBranch,
+  Cloud,
+  Settings,
+  MonitorSmartphone,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 const features = [
-    {
-        title: "Clean Architecture",
-        description:
-            "Clean, modular and layered architecture patterns that make systems easier to maintain, scale and evolve over time.",
-        icon: Layers,
-    },
-    {
-        title: "High Performance",
-        description:
-            "Optimized frontend and backend systems focused on speed, efficiency and smooth user experience.",
-        icon: Rocket,
-    },
-    {
-        title: "Secure Systems",
-        description:
-            "Security-first development with authentication, authorization, validation and industry best practices.",
-        icon: ShieldCheck,
-    },
-    {
-        title: "Modern Frontend Engineering",
-        description:
-            "Component-driven frontend development using React and Next.js with accessible, responsive UI.",
-        icon: Code2,
-    },
-    {
-        title: "Robust Backend Systems",
-        description:
-            "Scalable backend architecture using Node.js or Spring Boot with clean business logic and APIs.",
-        icon: Server,
-    },
-    {
-        title: "Reliable Database Design",
-        description:
-            "Well-structured databases with indexing, relationships and performance-optimized queries.",
-        icon: Database,
-    },
-    {
-        title: "Version Control & Collaboration",
-        description:
-            "Professional Git workflows with clean commits, branching strategies and team collaboration standards.",
-        icon: GitBranch,
-    },
-    {
-        title: "Cloud & Deployment Ready",
-        description:
-            "Applications designed for modern cloud environments with production-ready configurations.",
-        icon: Cloud,
-    },
-    {
-        title: "Scalable Configuration",
-        description:
-            "Config-driven systems with environment separation, logging, monitoring and scalability.",
-        icon: Settings,
-    },
-    {
-        title: "Responsive & Device Ready",
-        description:
-            "Mobile-first and cross-device compatible interfaces for consistent experience everywhere.",
-        icon: MonitorSmartphone,
-    },
+  {
+    title: "Enterprise Architecture",
+    description:
+      "Scalable, maintainable systems built with clean architecture patterns. Modular design that evolves with your business without breaking.",
+    icon: Layers,
+  },
+  {
+    title: "Lightning Performance",
+    description:
+      "Sub-second load times and butter-smooth interactions. Optimized rendering, lazy loading, and code splitting for speed that converts.",
+    icon: Rocket,
+  },
+  {
+    title: "Fort Knox Security",
+    description:
+      "Enterprise-grade authentication, authorization, encryption, and validation. Your data protected with industry best practices.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Modern Frontend Stack",
+    description:
+      "React, Next.js, TypeScript. Component-driven development with accessible, responsive, and pixel-perfect interfaces.",
+    icon: Code2,
+  },
+  {
+    title: "Battle-Tested Backend",
+    description:
+      "Node.js & Spring Boot powerhouses. RESTful APIs, microservices architecture, and rock-solid business logic that scales infinitely.",
+    icon: Server,
+  },
+  {
+    title: "Database Mastery",
+    description:
+      "Optimized schemas, smart indexing, efficient queries. Relational and NoSQL databases designed for performance and reliability.",
+    icon: Database,
+  },
+  {
+    title: "Git Workflow Excellence",
+    description:
+      "Professional version control with atomic commits, feature branching, and code reviews. Collaboration without chaos.",
+    icon: GitBranch,
+  },
+  {
+    title: "Cloud-Native Ready",
+    description:
+      "Built for AWS, Azure, Google Cloud. Containerized, auto-scaling, and production-ready infrastructure from day one.",
+    icon: Cloud,
+  },
+  {
+    title: "Smart Configuration",
+    description:
+      "Environment-aware configs, centralized logging, real-time monitoring. Control everything across dev, staging, and production.",
+    icon: Settings,
+  },
+  {
+    title: "Mobile-First Design",
+    description:
+      "Responsive across every device and screen size. Touch-optimized, gesture-ready. One codebase, infinite compatibility.",
+    icon: MonitorSmartphone,
+  },
 ];
 
 export default function FeaturesSection() {
-    return (
-        <section className="relative py-32 bg-gradient-to-br from-stone-50 via-rose-50 to-stone-100">
-            {/* ===== AMBIENT BACKGROUND ===== */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute top-24 left-16 h-72 w-72 rounded-full bg-rose-200/40 blur-3xl" />
-                <div className="absolute bottom-24 right-20 h-96 w-96 rounded-full bg-stone-300/40 blur-3xl" />
+  return (
+    <main className="relative overflow-hidden bg-zinc-950 text-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+        
+        * {
+          font-family: 'DM Sans', sans-serif;
+        }
+        
+        .font-display {
+          font-family: 'Playfair Display', serif;
+        }
+        
+        .font-mono {
+          font-family: 'Space Mono', monospace;
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+        
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-glow {
+          animation: glow 3s ease-in-out infinite;
+        }
+        
+        .gradient-text {
+          background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        
+        .grain {
+          position: relative;
+        }
+        
+        .grain::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+          opacity: 0.03;
+          pointer-events: none;
+        }
+      `}</style>
+
+      {/* =====================================================
+          FEATURES SECTION
+      ====================================================== */}
+      <section className="relative py-16 sm:py-24 md:py-32 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 grain">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-gradient-to-br from-amber-500/20 to-orange-600/20 blur-3xl animate-float" />
+          <div
+            className="absolute bottom-1/4 -right-20 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-orange-500/20 to-amber-600/20 blur-3xl animate-float"
+            style={{ animationDelay: "2s" }}
+          />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-yellow-500/10 to-orange-500/10 blur-3xl animate-glow" />
+        </div>
+
+        {/* Grid overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+          {/* Section Header */}
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full border border-amber-500/20 bg-amber-500/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium backdrop-blur-sm mb-6 sm:mb-8">
+              <Sparkles
+                size={12}
+                className="text-amber-400 sm:w-3.5 sm:h-3.5"
+              />
+              <span className="text-amber-300">World-Class Engineering</span>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6">
-                {/* ================= HEADER ================= */}
-                <div className="max-w-4xl mb-24">
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-stone-900">
-                        Engineering Principles
-                    </h2>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
+              Built on{" "}
+              <span className="gradient-text">rock-solid principles</span>
+            </h2>
 
-                    <p className="mt-8 text-lg sm:text-xl md:text-2xl text-stone-600 leading-relaxed">
-                        These principles guide how we design, build and deliver frontend,
-                        backend and full-stack systems — with a strong focus on quality,
-                        scalability and long-term value.
-                    </p>
+            <p className="mt-4 sm:mt-6 max-w-3xl text-base sm:text-lg md:text-xl text-zinc-300 leading-relaxed">
+              We don't just write code — we engineer systems that{" "}
+              <span className="font-semibold text-amber-400">perform</span>,{" "}
+              <span className="font-semibold text-amber-400">scale</span>, and{" "}
+              <span className="font-semibold text-amber-400">dominate</span>.
+              Every line serves a purpose. Every decision backed by experience.
+            </p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {features.map((item, i) => (
+              <div
+                key={i}
+                className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6 sm:p-8 backdrop-blur-sm transition-all duration-500 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/20"
+              >
+                {/* Hover gradient blob */}
+                <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-amber-500/10 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-amber-500/20" />
+
+                <div className="relative">
+                  {/* Icon */}
+                  <div className="mb-4 sm:mb-5 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 text-amber-400 backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <item.icon size={24} className="sm:w-7 sm:h-7" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="mb-2 sm:mb-3 text-lg sm:text-xl font-bold">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
+              </div>
+            ))}
+          </div>
 
-                {/* ================= FEATURES GRID ================= */}
-                <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                    {features.map((feature) => (
-                        <div
-                            key={feature.title}
-                            className="
-                group relative rounded-3xl
-                bg-white/70 backdrop-blur
-                border border-stone-200
-                p-10
-                shadow-sm
-                hover:shadow-xl hover:-translate-y-1
-                transition
-              "
-                        >
-                            {/* accent line */}
-                            <div className="absolute top-0 left-8 h-1 w-16 rounded-full bg-gradient-to-r from-rose-400 to-pink-500" />
-
-                            <div className="mb-8 inline-flex rounded-2xl bg-rose-100 p-5 text-rose-600 group-hover:scale-110 transition">
-                                <feature.icon size={30} />
-                            </div>
-
-                            <h3 className="text-2xl font-semibold text-stone-900">
-                                {feature.title}
-                            </h3>
-
-                            <p className="mt-5 text-stone-600 text-lg leading-relaxed">
-                                {feature.description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+          {/* Bottom CTA */}
+          <div className="mt-12 sm:mt-16 text-center">
+            <p className="text-base sm:text-lg text-zinc-400">
+              Ready to experience engineering excellence?{" "}
+              <a
+                href="/contact"
+                className="group inline-flex items-center gap-1.5 sm:gap-2 font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+              >
+                Let's build something extraordinary
+                <ArrowRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-1 sm:w-4 sm:h-4"
+                />
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }
